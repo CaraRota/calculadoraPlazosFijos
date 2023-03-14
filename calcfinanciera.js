@@ -2,12 +2,12 @@
 const tna = 0.75;
 
 // Definimos la region para determinar los separadores de miles
-region = "en-GB"
+region = "es-AR"
 
 // Formula de interes compuesto
 function compuesto(capital, dias, tea) {
     monto = capital * ((1 + tea) ** (dias / 365))
-    return parseFloat(monto)
+    return monto
 }
 
 // Verificamos que los prompts sean numeros mayores a cero
