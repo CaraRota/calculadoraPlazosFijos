@@ -19,14 +19,8 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/sebastian-emanuel-camia-trefs-20a7bb73/]
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+<p align="center">
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
   <h3 align="center">Javascript Comision #39490</h3>
 
