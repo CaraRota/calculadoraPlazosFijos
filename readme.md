@@ -31,3 +31,4 @@
 </div>
 
 [linkedin-url]: https://www.linkedin.com/in/sebastian-emanuel-camia-trefs-20a7bb73/
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
