@@ -1,14 +1,27 @@
 // Configuramos la TNA
-const tna = 0.75;
+const tna = 0.78
 
 // Definimos la region para determinar los separadores de miles
-region = "es-AR"
+const region = "es-AR"
 
 // Formula de interes compuesto
 function compuesto(capital, dias, tea) {
     monto = capital * ((1 + tea) ** (dias / 365))
     return monto
 }
+
+// Definimos un constructor para determinar los valores a almacenar en el programa
+class historialCalculadora {
+    constructor(nombre, monto, intereses, plazo) {
+        this.nombre = nombre;
+        this.monto = monto;
+        this.intereses = intereses;
+        this.plazo = plazo;
+    }
+}
+
+// Definimos un array vacio que almacenara los datos del historial de calculos realizado por el cliente
+const historialCalculadoraArray = []
 
 // Verificamos que los prompts sean numeros mayores a cero
 let validacion = true
@@ -27,9 +40,17 @@ while (validacion) {
             }
             else {
                 // Convertimos la TNA en TEA con n capitalizaciones dependiendo de la cantidad de dias que deposite.
-                const n = 360 / dias;
-                const tea = ((1 + tna / n) ** n) - 1;
-                alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + parseFloat((compuesto(capital, dias, tea)).toFixed(2)).toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + (monto.toFixed(2) - capital.toFixed(2)).toLocaleString(region) + " en concepto de interes.")
+                const n = 360 / dias
+                const tea = ((1 + tna / n) ** n) - 1
+                let capital1 = capital.toLocaleString(region)
+                let monto1 = parseFloat((compuesto(capital, dias, tea)).toFixed(2)).toLocaleString(region)
+                let intereses = (parseFloat((compuesto(capital, dias, tea)).toFixed(2)) - capital).toLocaleString(region)
+
+                alert("💹 Depositando $" + capital1 + ", obtendras $" + monto1 + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes.")
+
+                const historial = new historialCalculadora("Nombre", monto1, intereses, dias)
+                historialCalculadoraArray.push(historial)
+
                 validacion = false
                 validacion2 = false
             }
