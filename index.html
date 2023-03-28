@@ -17,10 +17,17 @@
 </head>
 
 <body>
-    <div class="mt-4 rounded container bg-warning-subtle text-center">
-        <!-- Hasta no tener la clase de DOM, pido disculpas por las molestias ocasionadas jaja -->
-        <button type="button" onclick="get_data()" class="btn btn-warning">Calcular</button>
-        <button type="button" onclick="clear_array()" class="btn btn-danger">Borrar Array</button>
+    <div class="mt-4 rounded container shadow text-center">
+        <div class="row align-items-center justify-content-center py-3">
+            <div class="col-2">
+                <!-- Hasta no tener la clase de DOM, pido disculpas por las molestias ocasionadas jaja -->
+                <button type="button" onclick="get_data()" class="btn btn-outline-success">Calcular</button>
+            </div>
+            <div class="col-2">
+                <button type="button" onclick="clear_array()" class="btn btn-outline-danger">Borrar
+                    Historial</button>
+            </div>
+        </div>
     </div>
 </body>
 
