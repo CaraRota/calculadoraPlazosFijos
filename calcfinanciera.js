@@ -5,7 +5,7 @@ const tna = 0.78
 const region = "es-AR"
 
 // Formula de interes compuesto
-const calcularInteresCompuesto = (capital, dias, tea)=> {
+const calcularInteresCompuesto = (capital, dias, tea) => {
     monto = capital * ((1 + tea) ** (dias / 365))
     return monto
 }
@@ -31,7 +31,7 @@ let validacion1 = true
 let validacion2 = true
 
 // Funcion que nos permite cargar datos a traves de prompts en un array
-const obtenerDatos = ()=> {
+const obtenerDatos = () => {
     while (validacion) {
         let nombre = prompt("Cual es su gracia?").trim().toUpperCase()
         if (nombre.length < 3) {
@@ -57,7 +57,7 @@ const obtenerDatos = ()=> {
                             let intereses = (monto1 - capital).toLocaleString(region)
                             let renovacion = new Date((Date.now() + dias)).toLocaleString(region)
 
-                            alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia "+renovacion)
+                            alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion)
 
                             // Declaramos una variable que nos permita agregar los datos ingresados por el usuario
                             const historial = new historialCalculadora(nombre, capital, monto1, intereses, dias, renovacion)
@@ -79,7 +79,7 @@ const obtenerDatos = ()=> {
     validacion2 = true
 }
 // Funcion que nos permite eliminar el historial de calculos realizado por los usuarios
-const borarArray = ()=> {
+const borarArray = () => {
     // Chequeamos que el historial de calculos tenga datos cargados
     if (historialCalculadoraArray.length > 0) {
         historialCalculadoraArray.length = 0
@@ -89,5 +89,15 @@ const borarArray = ()=> {
     }
     else {
         alert("❌ El historial de calculos ya se encuentra vacio.")
+    }
+}
+
+// Funcion que filtra las ultimas tres consultas realizadas
+const buscarUltimos = () => {
+    const ultimosTres = historialCalculadoraArray.reverse().filter((_, index) => index < 3 )
+    if(ultimosTres.length > 0) {
+    console.table(ultimosTres)
+    } else {
+        alert("❌ Aun nadie ha hecho consultas")
     }
 }
