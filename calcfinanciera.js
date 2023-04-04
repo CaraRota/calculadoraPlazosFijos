@@ -6,7 +6,7 @@ const region = "es-AR"
 
 // Formula de interes compuesto
 const calcularInteresCompuesto = (capital, dias, tea) => {
-    monto = capital * ((1 + tea) ** (dias / 365))
+    let monto = capital * ((1 + tea) ** (dias / 365))
     return monto
 }
 
@@ -27,8 +27,6 @@ const historialCalculadoraArray = []
 
 // Verificamos que los prompts sean numeros mayores a cero
 let validacion = true
-let validacion1 = true
-let validacion2 = true
 
 // Funcion que nos permite cargar datos a traves de prompts en un array
 const obtenerDatos = () => {
@@ -38,13 +36,15 @@ const obtenerDatos = () => {
             alert("❌ Por favor ingrese un nombre con mas de 3 caracteres")
         }
         else {
-            while (validacion1) {
+            validacion = true
+            while (validacion) {
                 let capital = parseFloat(prompt("🏦 Cuanto dinero quieres depositar?"))
                 if (isNaN(capital) || capital <= 0) {
                     alert("❌ Por favor ingresa un numero mayor a cero.")
                 }
                 else {
-                    while (validacion2) {
+                    validacion = true
+                    while (validacion) {
                         let dias = parseFloat(prompt("⌛ Durante cuantos dias te gustaria depositar?"))
                         if (isNaN(dias) || dias <= 0) {
                             alert("❌ Por favor ingresa un numero mayor a cero.")
@@ -64,10 +64,7 @@ const obtenerDatos = () => {
                             historialCalculadoraArray.push(historial)
                             // Tiramos un console.table para que se nos muestre el Array bonito por consola
                             console.table(historialCalculadoraArray)
-
                             validacion = false
-                            validacion1 = false
-                            validacion2 = false
                         }
                     }
                 }
@@ -75,8 +72,6 @@ const obtenerDatos = () => {
         }
     }
     validacion = true
-    validacion1 = true
-    validacion2 = true
 }
 // Funcion que nos permite eliminar el historial de calculos realizado por los usuarios
 const borarArray = () => {
@@ -94,9 +89,9 @@ const borarArray = () => {
 
 // Funcion que filtra las ultimas tres consultas realizadas
 const buscarUltimos = () => {
-    const ultimosTres = historialCalculadoraArray.reverse().filter((_, index) => index < 3 )
-    if(ultimosTres.length > 0) {
-    console.table(ultimosTres)
+    const ultimosTres = historialCalculadoraArray.reverse().filter((_, index) => index < 3)
+    if (ultimosTres.length > 0) {
+        console.table(ultimosTres)
     } else {
         alert("❌ Aun nadie ha hecho consultas")
     }
