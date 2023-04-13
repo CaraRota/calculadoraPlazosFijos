@@ -60,15 +60,14 @@ const obtenerDatos = (event) => {
 
         // Agregamos nuestras consultas en una tabla que creamos dinamicamente en nuestro HTML
         const agregarHistorial = document.querySelector("#historial")
-        const nuevoHistorial = document.createElement("div")
-        nuevoHistorial.innerHTML = `<div class="cell">
-        <div class="col-2 column">${nombre}</div>
-        <div class="col-2 column">${capital}</div>
-        <div class="col-2 column">${monto1}</div>
-        <div class="col-2 column">${intereses}</div>
-        <div class="col-2 column">${dias}</div>
-        <div class="col-2 column">${renovacion}</div>
-        </div>`
+        const nuevoHistorial = document.createElement("tr")
+        nuevoHistorial.innerHTML = `<td class="column1">${nombre}</td>
+        <td class="column2">${capital}</td>
+        <td class="column3">${monto1}</td>
+        <td class="column4">${intereses}</td>
+        <td class="column5">${dias}</td>
+        <td class="column6">${renovacion}</td>`
+
         agregarHistorial.appendChild(nuevoHistorial)
 
         // Reseteamos el form para que se borren los datos ingresados
