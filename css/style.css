@@ -5,6 +5,11 @@
 }
 
 /* START BUTTONS CSS */
+.historial {
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+}
+
 .pushable {
     background: hsl(340deg 100% 32%);
     border-radius: 5px;
@@ -39,15 +44,11 @@
     text-transform: uppercase;
 }
 
-@font-face {
-    font-family: OpenSans-Regular;
-    src: url(../fonts/OpenSans/OpenSans-Regular.ttf)
-}
-
 body,
 html {
     height: 100%;
-    font-family: sans-serif
+    font-family: sans-serif;
+    background-color: #cccccc;
 }
 
 a {
@@ -176,7 +177,7 @@ table tbody tr:last-child {
     font-size: 18px;
     color: #fff;
     line-height: 1.2;
-    font-weight: unset
+    font-weight: unset;
 }
 
 tbody tr:nth-child(even) {
@@ -188,12 +189,13 @@ tbody tr {
     font-size: 15px;
     color: #000;
     line-height: 1.2;
-    font-weight: unset;
+    font-weight: bold;
 }
 
 tbody tr:hover {
     color: #fff;
     background-color: #36304a;
+    font-weight: bold;
     cursor: pointer
 }
 

@@ -48,7 +48,7 @@ const obtenerDatos = (event) => {
         const tea = ((1 + tna / n) ** n) - 1
         let monto1 = parseFloat((calcularInteresCompuesto(capital, dias, tea)).toFixed(2))
         let intereses = (monto1 - capital).toLocaleString(region)
-        let renovacion = new Date((Date.now() + dias)).toLocaleDateString(region)
+        let renovacion = new Date((Date.now() + (dias * 24 * 60 * 60 * 1000))).toLocaleDateString(region)
 
         alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion)
 
@@ -61,12 +61,13 @@ const obtenerDatos = (event) => {
         // Agregamos nuestras consultas en una tabla que creamos dinamicamente en nuestro HTML
         const agregarHistorial = document.querySelector("#historial")
         const nuevoHistorial = document.createElement("tr")
-        nuevoHistorial.innerHTML = `<td class="column1">${nombre}</td>
-        <td class="column2">${capital}</td>
-        <td class="column3">${monto1}</td>
-        <td class="column4">${intereses}</td>
-        <td class="column5">${dias}</td>
-        <td class="column6">${renovacion}</td>`
+        nuevoHistorial.classList.add("delete")
+        nuevoHistorial.innerHTML = `<td class="column1 delete">${nombre}</td>
+        <td class="column2 delete">${capital}</td>
+        <td class="column3 delete">${monto1}</td>
+        <td class="column4 delete">${intereses}</td>
+        <td class="column5 delete">${dias}</td>
+        <td class="column6 delete">${renovacion}</td>`
 
         agregarHistorial.appendChild(nuevoHistorial)
 
@@ -84,22 +85,40 @@ const borarArray = () => {
     // Chequeamos que el historial de calculos tenga datos cargados
     if (historialCalculadoraArray.length > 0) {
         historialCalculadoraArray.length = 0
+        const borrarHistorial = document.querySelectorAll(".delete")
+        borrarHistorial.forEach((element) => {
+            element.remove()
+        })
         alert("🆑 Su historial de calculos ha sido borrado")
-        // Chequeamos que el hitorial se haya borrado mediante con console.log (eliminar estas lineas una vez pasado el QA)
-        console.log(historialCalculadoraArray)
     }
     else {
         alert("❌ El historial de calculos ya se encuentra vacio.")
     }
 }
 
-// Funcion que filtra las ultimas tres consultas realizadas
-const buscarUltimos = () => {
-    const ultimosTres = historialCalculadoraArray.reverse().filter((_, index) => index < 3)
+// Llamamos a la funcion borrarArray mediante el boton de Borrar
+const btnBorrar = document.querySelector("#btnBorrar")
+btnBorrar.addEventListener("click", borarArray)
 
-    if (ultimosTres.length > 0) {
-        console.table(ultimosTres)
-    } else {
-        alert("❌ Aun nadie ha hecho consultas")
-    }
-}
+// // Funcion que busca las consultas por nombres ingresados
+// const buscar = (event) => {
+//     event.preventDefault()
+//     const fieldBuscar = document.querySelector("#inputBuscar")
+//     let busqueda = fieldBuscar.value
+//     const ultimosTres = historialCalculadoraArray.reverse().filter((busqueda, index) => index < 3)
+
+//     if (ultimosTres.length > 0) {
+//         ultimosTres.forEach(element => {
+//             element.innerHTML = `hola mundo`
+//             form2.reset()
+
+//         });
+//     } else {
+//         alert("❌ Aun nadie ha hecho consultas")
+//         form2.reset()
+//     }
+// }
+
+// // Llamamos a la funcion buscar mediante el boton de buscar
+// const btnBuscar = document.querySelector("#form2")
+// btnBuscar.addEventListener("submit", buscar)
