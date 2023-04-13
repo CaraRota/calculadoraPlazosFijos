@@ -90,6 +90,7 @@ const borarArray = () => {
 // Funcion que filtra las ultimas tres consultas realizadas
 const buscarUltimos = () => {
     const ultimosTres = historialCalculadoraArray.reverse().filter((_, index) => index < 3)
+    
     if (ultimosTres.length > 0) {
         console.table(ultimosTres)
     } else {

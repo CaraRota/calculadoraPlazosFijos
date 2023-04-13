@@ -13,23 +13,43 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
     <!-- IMPORTAMOS NUESTRO ARCHIVO JS -->
-    <script src="calcfinanciera.js"></script>
+    <script defer src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div class="mt-4 rounded container shadow text-center">
-        <div class="row align-items-center justify-content-center py-3">
-            <div class="col-2">
-                <!-- Hasta no tener la clase de DOM, pido disculpas por las molestias ocasionadas jaja -->
-                <button type="button" onclick="obtenerDatos()" class="btn btn-outline-success">Calcular</button>
-            </div>
-            <div class="col-2">
-                <button type="button" onclick="borarArray()" class="btn btn-outline-danger">Borrar
-                    Historial</button>
-            </div>
-            <div class="col-2">
-                <button type="button" onclick="buscarUltimos()" class="btn btn-outline-warning">Ultimos 3</button>
-            </div>
+        <div class="container form-container py-3 rounded bg-dark bg-gradient text-light">
+            <form class="form">
+                <div class="mb-3">
+                    <label for="inputNombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="inputNombre" placeholder="Ingrese su nombre" autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="inputMonto" class="form-label">Capital</label>
+                    <input type="number" class="form-control" id="inputMonto"
+                        placeholder="Ingrese el monto que desea invertir"></input>
+                </div>
+                <div class="mb-3">
+                    <label for="inputDias" class="form-label">Dias</label>
+                    <input type="number" class="form-control" id="inputDias"
+                        placeholder="Ingrese por cuantos dias desea depositar"></input>
+                </div>
+                <div class="row align-items-center justify-content-center py-3">
+                    <div class="col-4">
+                        <button id="btnCalcular" type="button" onclick="obtenerDatos()"
+                            class="btn btn-outline-success">Calcular</button>
+                    </div>
+                    <div class="col-4">
+                        <button id="btnBorrar" type="button" onclick="borarArray()"
+                            class="btn btn-outline-danger">Borrar</button>
+                    </div>
+                    <div class="col-4">
+                        <button id="btnUltimos3" type="button" onclick="buscarUltimos()"
+                            class="btn btn-outline-warning">Ultimos</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
