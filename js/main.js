@@ -50,7 +50,7 @@ const obtenerDatos = (event) => {
         let intereses = (monto1 - capital).toLocaleString(region)
         let renovacion = new Date((Date.now() + (dias * 24 * 60 * 60 * 1000))).toLocaleDateString(region)
 
-        alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion)
+        // alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion)
 
         // Declaramos una variable que nos permita agregar los datos ingresados por el usuario
         const historial = new historialCalculadora(nombre, capital, monto1, intereses, dias, renovacion)
