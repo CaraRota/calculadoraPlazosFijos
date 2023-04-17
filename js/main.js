@@ -1,25 +1,7 @@
-// Configuramos la TNA
-const tna = 0.78
-
-// Definimos la region para determinar los separadores de miles
-const region = "es-AR"
-
 // Formula de interes compuesto
 const calcularInteresCompuesto = (capital, dias, tea) => {
     let monto = capital * ((1 + tea) ** (dias / 365))
     return monto
-}
-
-// Definimos un constructor para determinar los valores a almacenar en el programa
-class historialCalculadora {
-    constructor(nombre, capital, monto, intereses, plazo, renovacion) {
-        this.nombre = nombre
-        this.capital = capital
-        this.monto = monto
-        this.intereses = intereses
-        this.plazo = plazo
-        this.renovacion = renovacion
-    }
 }
 
 // Definimos un array vacio que almacenara los datos del historial de calculos realizado por el cliente
@@ -50,15 +32,21 @@ const obtenerDatos = (event) => {
         let intereses = (monto1 - capital).toLocaleString(region)
         let renovacion = new Date((Date.now() + (dias * 24 * 60 * 60 * 1000))).toLocaleDateString(region)
 
-        // alert("💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion)
+        // Mostramos en pantalla la consulta realizada por el cliente
+        const ultimaConsulta = document.querySelector("#ultimaConsulta")
+        const datosUltimaConsulta = "💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion
+        ultimaConsulta.innerHTML = `<h4 class="text-center mb-3">ULTIMA CONSULTA</h4>`+datosUltimaConsulta
+        ultimaConsulta.classList.add("py-3")
 
         // Declaramos una variable que nos permita agregar los datos ingresados por el usuario
         const historial = new historialCalculadora(nombre, capital, monto1, intereses, dias, renovacion)
         historialCalculadoraArray.push(historial)
-        // Tiramos un console.table para que se nos muestre el Array bonito por consola
-        console.table(historialCalculadoraArray)
 
-        // Agregamos nuestras consultas en una tabla que creamos dinamicamente en nuestro HTML
+        // Guardamos los datos ingresados por el usuario en su Local Storage mediante la consulta de historialCalculadoraArray que guarda todas las consultas realizadas en la sesion
+        const historialJSON = JSON.stringify(historialCalculadoraArray)
+        localStorage.setItem("historial", historialJSON)
+
+        // Agregamos nuestras consultas en una tabla que creamos dinamicamente en nuestro HTML (en un futuro esta tabla deberia conectarse con un backend para mostrar las consultas de todos los usuarios)
         const agregarHistorial = document.querySelector("#historial")
         const nuevoHistorial = document.createElement("tr")
         nuevoHistorial.classList.add("delete")
@@ -100,25 +88,94 @@ const borarArray = () => {
 const btnBorrar = document.querySelector("#btnBorrar")
 btnBorrar.addEventListener("click", borarArray)
 
-// // Funcion que busca las consultas por nombres ingresados
-// const buscar = (event) => {
-//     event.preventDefault()
-//     const fieldBuscar = document.querySelector("#inputBuscar")
-//     let busqueda = fieldBuscar.value
-//     const ultimosTres = historialCalculadoraArray.reverse().filter((busqueda, index) => index < 3)
+// Funcion que muestra todas las consultas realizadas por el cliente
+const misConsultas = () => {
+    if (localStorage.length > 0) {
 
-//     if (ultimosTres.length > 0) {
-//         ultimosTres.forEach(element => {
-//             element.innerHTML = `hola mundo`
-//             form2.reset()
+        const historialJSON = JSON.parse(localStorage.getItem("historial"))
+        const mostrarConsultas = document.querySelector("#consultasCliente")
 
-//         });
-//     } else {
-//         alert("❌ Aun nadie ha hecho consultas")
-//         form2.reset()
-//     }
-// }
+        // Mapeamos la consulta que obtenemos una vez parseado el localStorage
+        const obtenerHistorial = historialJSON.map((consulta) => ({
+            nombre: consulta.nombre,
+            capital: consulta.capital,
+            monto: consulta.monto,
+            intereses: consulta.intereses,
+            dias: consulta.dias,
+            renovacion: consulta.renovacion
+        }))
 
-// // Llamamos a la funcion buscar mediante el boton de buscar
-// const btnBuscar = document.querySelector("#form2")
-// btnBuscar.addEventListener("submit", buscar)
+        // Generamos HTML dinamicamente para las filas de la tabla
+        let tableRows = '';
+        for (const consulta of obtenerHistorial) {
+            tableRows += `
+            <tr>
+                <td class="column1">${consulta.nombre}</td>
+                <td class="column2">${consulta.capital}</td>
+                <td class="column3">${consulta.monto}</td>
+                <td class="column4">${consulta.intereses}</td>
+                <td class="column5">${consulta.dias}</td>
+                <td class="column6">${consulta.renovacion}</td>
+            </tr>
+        `;
+        }
+
+        // Actualizamos el contenido de la tabla con las filas generadas
+        mostrarConsultas.innerHTML = `
+        <div class="container py-4">
+            <div class="limiter">
+                <div class="container-table100 rounded">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table>
+                                <thead id="encabezado">
+                                    <tr class="table100-head uppcercase">
+                                        <th class="column1">Nombre</th>
+                                        <th class="column2">Capital</th>
+                                        <th class="column3">Monto</th>
+                                        <th class="column4">Intereses</th>
+                                        <th class="column5">Dias</th>
+                                        <th class="column6">Renovacion</th>
+                                    </tr>
+                                </thead>
+                                <span class="historial uppcercase d-flex justify-content-center text-center text-light h4">
+                                    Mis Consultas
+                                </span>
+                                <tbody id="historial">
+                                    ${tableRows}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    } else {
+        alert("⚠️ Usted aun no ha realizado ninguna consulta.")
+    }
+}
+
+// Llamamos a la funcion consultas mediante el boton de Consultas
+const btnMisConsultas = document.querySelector("#btnMisConsultas")
+btnMisConsultas.addEventListener("click", misConsultas)
+
+
+// Funcion para borrar el localStorage del usuario y, de existir, eliminar las tablas creadas en la funcion
+const borrarConsultas = () => {
+    if (localStorage.length > 0) {
+        localStorage.clear()
+        alert("✅ Su historial de consultas ha sido eliminado.")
+        const btnConsultas = document.querySelector("#consultasCliente")
+        // Eliminamos todos los hijos de #consultasCliente
+        while (btnConsultas.firstChild) {
+            btnConsultas.firstChild.remove();
+        }
+    } else {
+        alert("⚠️ Usted aun no tiene ninguna consulta archivada.")
+    }
+}
+
+// // Llamamos a la funcion borrarConsultas mediante el boton de Borrar Consultas
+const btnBorrarConsultas = document.querySelector("#btnBorrarConsultas")
+btnBorrarConsultas.addEventListener("click", borrarConsultas)

@@ -13,6 +13,8 @@
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
     <!-- IMPORTAMOS NUESTRO ARCHIVO JS -->
+    <script src="./js/variables.js"></script>
+    <script src="./js/class.js"></script>
     <script defer src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -39,35 +41,40 @@
                                 placeholder="Ingrese por cuantos dias desea depositar"></input>
                         </div>
                         <div class="row align-items-center d-flex justify-content-center py-3">
-                            <div class="col-4">
+                            <div class="col-6">
                                 <button id="btnCalcular" type="submit" class="btn btn-outline-danger pushable">
                                     <span class="front">
                                         Calcular
                                     </span>
                                 </button>
                             </div>
-                            <div class="col-4">
+                            <div class="col-6">
                                 <button id="btnBorrar" type="button" class="btn btn-outline-danger pushable">
                                     <span class="front">
-                                        Borrar
+                                        Borrar Historial
                                     </span>
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    <form id="form2" class="form">
-                        <div class="my-3">
-                            <label for="buscarConsulta" class="form-label">Buscar Consulta</label>
-                            <input id="inputBuscar" type="text" class="form-control" id="buscarConsulta"
-                                placeholder="Ingrese un nombre...">
+                        <div id="ultimaConsulta" class="container bg-secondary rounded">
                         </div>
-                        <div>
-                            <button id="btnBuscar" type="submit" class="btn btn-outline-danger pushable">
+                    </form>
+                    <div class="row">
+                        <div class="col-6">
+                            <button id="btnMisConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
                                 <span class="front">
-                                    Buscar
+                                    Mis Consultas
                                 </span>
                             </button>
-                    </form>
+                        </div>
+                        <div class="col-6">
+                            <button id="btnBorrarConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
+                                <span class="front">
+                                    Borrar Consultas
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container py-4">
@@ -97,6 +104,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div id="consultasCliente">
+
             </div>
         </div>
     </main>
