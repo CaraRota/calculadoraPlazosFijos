@@ -32,7 +32,7 @@ const obtenerDatos = (event) => {
         let intereses = (monto1 - capital).toLocaleString(region)
         let renovacion = new Date((Date.now() + (dias * 24 * 60 * 60 * 1000))).toLocaleDateString(region)
 
-        // Mostramos en pantalla la consulta realizada por el cliente
+        // Mostramos en pantalla la consulta realizada por el cliente (que antes se hacia por alert)
         const ultimaConsulta = document.querySelector("#ultimaConsulta")
         const datosUltimaConsulta = "💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion
         ultimaConsulta.innerHTML = `<h4 class="text-center mb-3">ULTIMA CONSULTA</h4>`+datosUltimaConsulta
@@ -106,9 +106,9 @@ const misConsultas = () => {
         }))
 
         // Generamos HTML dinamicamente para las filas de la tabla
-        let tableRows = '';
+        let filasTabla = '';
         for (const consulta of obtenerHistorial) {
-            tableRows += `
+            filasTabla += `
             <tr>
                 <td class="column1">${consulta.nombre}</td>
                 <td class="column2">${consulta.capital}</td>
@@ -142,7 +142,7 @@ const misConsultas = () => {
                                     Mis Consultas
                                 </span>
                                 <tbody id="historial">
-                                    ${tableRows}
+                                    ${filasTabla}
                                 </tbody>
                             </table>
                         </div>
