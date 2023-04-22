@@ -7,8 +7,9 @@ const calcularInteresCompuesto = (capital, dias, tea) => {
 // Definimos un array vacio que almacenara los datos del historial de calculos realizado por el cliente
 const historialCalculadoraArray = []
 
-// Definimos una funcion para calcular el interes compuesto a traves de los datos ingresados por el usuario
-const obtenerDatos = (event) => {
+// Llamamos a la funcion obtenerDatos mediante el boton de submit (Calcular)
+const btnCalcular = document.querySelector("#form")
+btnCalcular.addEventListener("submit", obtenerDatos = (event) => {
     event.preventDefault()
 
     const inputNombre = document.querySelector("#inputNombre")
@@ -35,7 +36,7 @@ const obtenerDatos = (event) => {
         // Mostramos en pantalla la consulta realizada por el cliente (que antes se hacia por alert)
         const ultimaConsulta = document.querySelector("#ultimaConsulta")
         const datosUltimaConsulta = "💹 Depositando $" + capital.toLocaleString(region) + ", obtendras $" + monto1.toLocaleString(region) + " al final del periodo de " + dias + " dias. De ese monto, recibiras $" + intereses + " en concepto de interes. Podras renovar este plazo fijo el dia " + renovacion
-        ultimaConsulta.innerHTML = `<h4 class="text-center mb-3">ULTIMA CONSULTA</h4>`+datosUltimaConsulta
+        ultimaConsulta.innerHTML = `<h4 class="text-center mb-3">ULTIMA CONSULTA</h4>` + datosUltimaConsulta
         ultimaConsulta.classList.add("py-3")
 
         // Declaramos una variable que nos permita agregar los datos ingresados por el usuario
@@ -62,14 +63,11 @@ const obtenerDatos = (event) => {
         // Reseteamos el form para que se borren los datos ingresados
         form.reset()
     }
-}
+})
 
-// Llamamos a la funcion obtenerDatos mediante el boton de submit (Calcular)
-const btnCalcular = document.querySelector("#form")
-btnCalcular.addEventListener("submit", obtenerDatos)
-
-// Funcion que nos permite eliminar el historial de calculos realizado por los usuarios
-const borarArray = () => {
+// Llamamos a la funcion borrarArray mediante el boton de Borrar
+const btnBorrar = document.querySelector("#btnBorrar")
+btnBorrar.addEventListener("click", borarArray = () => {
     // Chequeamos que el historial de calculos tenga datos cargados
     if (historialCalculadoraArray.length > 0) {
         historialCalculadoraArray.length = 0
@@ -77,19 +75,18 @@ const borarArray = () => {
         borrarHistorial.forEach((element) => {
             element.remove()
         })
-        alert("🆑 Su historial de calculos ha sido borrado")
+        // alert("🆑 Su historial de calculos ha sido borrado")
+        alertas("../img/warning-icon.png", "Hecho!", "Su historial de calculos ha sido borrado")
     }
     else {
-        alert("❌ El historial de calculos ya se encuentra vacio.")
+        // alert("❌ El historial de calculos ya se encuentra vacio.")
+        alertas("../img/warning-icon.png", "Error!", "El historial de calculos ya se encuentra vacio.")
     }
-}
+})
 
-// Llamamos a la funcion borrarArray mediante el boton de Borrar
-const btnBorrar = document.querySelector("#btnBorrar")
-btnBorrar.addEventListener("click", borarArray)
-
-// Funcion que muestra todas las consultas realizadas por el cliente
-const misConsultas = () => {
+// Llamamos a la funcion consultas mediante el boton de Consultas
+const btnMisConsultas = document.querySelector("#btnMisConsultas")
+btnMisConsultas.addEventListener("click", misConsultas = () => {
     if (localStorage.length > 0) {
 
         const historialJSON = JSON.parse(localStorage.getItem("historial"))
@@ -106,7 +103,7 @@ const misConsultas = () => {
         }))
 
         // Generamos HTML dinamicamente para las filas de la tabla
-        let filasTabla = '';
+        let filasTabla = ''
         for (const consulta of obtenerHistorial) {
             filasTabla += `
             <tr>
@@ -117,7 +114,7 @@ const misConsultas = () => {
                 <td class="column5">${consulta.dias}</td>
                 <td class="column6">${consulta.renovacion}</td>
             </tr>
-        `;
+        `
         }
 
         // Actualizamos el contenido de la tabla con las filas generadas
@@ -150,32 +147,27 @@ const misConsultas = () => {
                 </div>
             </div>
         </div>
-    `;
+    `
     } else {
-        alert("⚠️ Usted aun no ha realizado ninguna consulta.")
+        // alert("⚠️ Usted aun no ha realizado ninguna consulta.")
+        alertas("../img/warning-icon.png", "Error!", "Usted aun no ha realizado ninguna consulta.")
     }
-}
-
-// Llamamos a la funcion consultas mediante el boton de Consultas
-const btnMisConsultas = document.querySelector("#btnMisConsultas")
-btnMisConsultas.addEventListener("click", misConsultas)
-
-
-// Funcion para borrar el localStorage del usuario y, de existir, eliminar las tablas creadas en la funcion
-const borrarConsultas = () => {
-    if (localStorage.length > 0) {
-        localStorage.clear()
-        alert("✅ Su historial de consultas ha sido eliminado.")
-        const btnConsultas = document.querySelector("#consultasCliente")
-        // Eliminamos todos los hijos de #consultasCliente
-        while (btnConsultas.firstChild) {
-            btnConsultas.firstChild.remove();
-        }
-    } else {
-        alert("⚠️ Usted aun no tiene ninguna consulta archivada.")
-    }
-}
+})
 
 // // Llamamos a la funcion borrarConsultas mediante el boton de Borrar Consultas
 const btnBorrarConsultas = document.querySelector("#btnBorrarConsultas")
-btnBorrarConsultas.addEventListener("click", borrarConsultas)
+btnBorrarConsultas.addEventListener("click", borrarConsultas = () => {
+    if (localStorage.length > 0) {
+        localStorage.clear()
+        // alert("✅ Su historial de consultas ha sido eliminado.")
+        alertas("../img/warning-icon.png", "Hecho!", "✅ Su historial de consultas ha sido eliminado.")
+        const btnConsultas = document.querySelector("#consultasCliente")
+        // Eliminamos todos los hijos de #consultasCliente
+        while (btnConsultas.firstChild) {
+            btnConsultas.firstChild.remove()
+        }
+    } else {
+        // alert("⚠️ Usted aun no tiene ninguna consulta archivada.")
+        alertas("../img/warning-icon.png", "Error!", "Usted aun no tiene ninguna consulta archivada.")
+    }
+})
