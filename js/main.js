@@ -75,11 +75,9 @@ btnBorrar.addEventListener("click", borarArray = () => {
         borrarHistorial.forEach((element) => {
             element.remove()
         })
-        // alert("🆑 Su historial de calculos ha sido borrado")
         alertas("success", "Hecho!", "Su historial de calculos ha sido borrado", "animate__animated animate__bounceIn")
     }
     else {
-        // alert("❌ El historial de calculos ya se encuentra vacio.")
         alertas("error", "Error!", "El historial de calculos ya se encuentra vacio.", "animate__animated animate__headShake")
     }
 })
@@ -149,7 +147,6 @@ btnMisConsultas.addEventListener("click", misConsultas = () => {
         </div>
     `
     } else {
-        // alert("⚠️ Usted aun no ha realizado ninguna consulta.")
         alertas("error", "Error!", "Usted aun no ha realizado ninguna consulta.", "animate__animated animate__headShake")
     }
 })
@@ -159,7 +156,6 @@ const btnBorrarConsultas = document.querySelector("#btnBorrarConsultas")
 btnBorrarConsultas.addEventListener("click", borrarConsultas = () => {
     if (localStorage.length > 0) {
         localStorage.clear()
-        // alert("✅ Su historial de consultas ha sido eliminado.")
         alertas("success", "Hecho!", "Su historial de consultas ha sido eliminado.", "animate__animated animate__bounceIn")
         const btnConsultas = document.querySelector("#consultasCliente")
         // Eliminamos todos los hijos de #consultasCliente
@@ -167,7 +163,6 @@ btnBorrarConsultas.addEventListener("click", borrarConsultas = () => {
             btnConsultas.firstChild.remove()
         }
     } else {
-        // alert("⚠️ Usted aun no tiene ninguna consulta archivada.")
         alertas("error", "Error!", "Usted aun no tiene ninguna consulta archivada.", "animate__animated animate__headShake")
     }
 })
