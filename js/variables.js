@@ -4,7 +4,7 @@ const tna = 0.78
 // Definimos la region para determinar los separadores de miles
 const region = "es-AR"
 
-// Funcion para alertas de un solo boton (OK)
+// Funcion para alertas de un solo boton (Solo el OK)
 const alertas = (icon, titulo, texto, animation) => {
     Swal.fire({
         icon: icon,
@@ -14,8 +14,8 @@ const alertas = (icon, titulo, texto, animation) => {
             popup: animation
         },
         customClass: {
-            confirmButton: "btn btn-outline-danger pushable front m-3",
-            denyButton: "btn btn-outline-danger pushable front m-3"
+            confirmButton: "btn btn-dark m-3",
+            denyButton: "btn btn-dark m-3"
         },
         buttonsStyling: false
     })
