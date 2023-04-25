@@ -1,70 +1,94 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box
-}
-
-/* START BUTTONS CSS */
-.historial {
-    font-weight: bold;
-    text-shadow: 1px 1px #000;
-}
-
-.pushable {
-    background: hsl(340deg 100% 32%);
-    border-radius: 5px;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    outline-offset: 4px;
-}
-
-.front {
-    display: block;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-size: 1.25rem;
-    background: hsl(345, 57%, 43%);
-    color: white;
-    transform: translateY(-6px);
-}
-
-.pushable:active .front {
-    transform: translateY(-2px);
-}
-
-/* END BUTTONS CSS */
-
-.form-container {
-    max-width: 500px;
-    background-color: #36304a;
-}
-
-.uppercase {
-    text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body,
 html {
-    height: 100%;
-    font-family: sans-serif;
-    background-color: #cccccc;
+  height: 100%;
+  font-family: sans-serif;
+  background-color: #DDDDDD;
+}
+
+.bg-gradient {
+  background: #30475E !important;
+}
+
+/* START BUTTONS CSS */
+.historial {
+  font-weight: bold;
+}
+
+.pushable {
+  background: #222831;
+  border-radius: 5px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.company-name {
+  color: #DDDDDD;
+}
+
+.front {
+  display: block;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  background: #30475E;
+  color: #DDDDDD;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  color: #DDDDDD;
+  background-color: #222831;
+  border: 1px #30475E;
+}
+.btn-danger:hover {
+  background-color: #30475E;
+  border: 1px #222831;
+}
+
+.btn-dark {
+  color: #DDDDDD;
+  background-color: #222831;
+  border: 1px #30475E;
+}
+.btn-dark:hover {
+  background-color: #30475E;
+  border: 1px #222831;
+}
+
+/* END BUTTONS CSS */
+.form-container {
+  max-width: 500px;
+  background-color: #222831;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 a {
-    margin: 0;
-    transition: all .4s;
-    -webkit-transition: all .4s;
-    -o-transition: all .4s;
-    -moz-transition: all .4s
+  margin: 0;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
 }
-
 a:focus {
-    outline: none !important
+  outline: none !important;
 }
-
 a:hover {
-    text-decoration: none
+  text-decoration: none;
 }
 
 h1,
@@ -73,255 +97,227 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0
+  margin: 0;
 }
 
 p {
-    margin: 0
+  margin: 0;
 }
 
 ul,
 li {
-    margin: 0;
-    list-style-type: none
+  margin: 0;
+  list-style-type: none;
 }
 
 input {
-    display: block;
-    outline: none;
-    border: none !important
+  display: block;
+  outline: none;
+  border: none !important;
 }
 
 textarea {
-    display: block;
-    outline: none
+  display: block;
+  outline: none;
 }
 
 textarea:focus,
 input:focus {
-    border-color: transparent !important
+  border-color: transparent !important;
 }
 
 button {
-    outline: none !important;
-    border: none;
-    background: 0 0
+  outline: none !important;
+  border: none;
+  background: 0 0;
 }
-
 button:hover {
-    cursor: pointer
+  cursor: pointer;
 }
 
 iframe {
-    border: none !important
+  border: none !important;
 }
 
 .limiter {
-    width: 100%;
-    margin: 0 auto
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container-table100 {
-    width: 100%;
-    background: #EB3349;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #F45C43, #EB3349);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #F45C43, #EB3349);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 33px 30px
+  width: 100%;
+  background: #222831;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 33px 30px;
 }
 
 .wrap-table100 {
-    width: 1170px
+  width: 1170px;
 }
 
 table {
-    border-spacing: 1;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-    position: relative
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: #222831;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
 table * {
-    position: relative
+  position: relative;
 }
 
 table thead tr {
-    height: 60px;
-    background: #36304a
+  height: 60px;
+  background: #30475E;
 }
 
 table tbody tr {
-    height: 50px
+  height: 50px;
 }
 
 table tbody tr:last-child {
-    border: 0
+  border: 0;
 }
 
 .table100-head th {
-    font-family: OpenSans-Regular;
-    font-size: 18px;
-    color: #fff;
-    line-height: 1.2;
-    font-weight: unset;
+  font-family: OpenSans-Regular;
+  font-size: 18px;
+  color: #DDDDDD;
+  line-height: 1.2;
+  font-weight: unset;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f5f5f5
+  background-color: #30475E;
+}
+tbody tr:nth-child(even):hover {
+  background-color: #222831;
 }
 
 tbody tr {
-    font-family: OpenSans-Regular;
-    font-size: 15px;
-    color: #000;
-    line-height: 1.2;
-    font-weight: bold;
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: #DDDDDD;
+  line-height: 1.2;
+  font-weight: bold;
+  background-color: #30475E;
 }
 
 tbody tr:hover {
-    color: #fff;
-    background-color: #36304a;
-    font-weight: bold;
-    cursor: pointer
+  color: #DDDDDD;
+  background-color: #222831;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .column1 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .column2 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .column3 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .column4 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .column5 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
 .column6 {
-    width: 200px;
-    text-align: center;
+  width: 200px;
+  text-align: center;
 }
 
-@media screen and (max-width:768px) {
-    table {
-        display: block
-    }
-
-    table>*,
-    table tr,
-    table td,
-    table th {
-        display: block
-    }
-
-    table thead {
-        display: none
-    }
-
-    table tbody tr {
-        height: auto;
-        padding: 37px 0
-    }
-
-    table tbody tr td {
-        padding-left: 40% !important;
-        margin-bottom: 24px
-    }
-
-    table tbody tr td:last-child {
-        margin-bottom: 0
-    }
-
-    table tbody tr td:before {
-        font-family: OpenSans-Regular;
-        font-size: 14px;
-        color: #999;
-        line-height: 1.2;
-        font-weight: unset;
-        position: absolute;
-        width: 40%;
-        left: 30px;
-        top: 0
-    }
-
-    table tbody tr td:nth-child(1):before {
-        content: "Nombre"
-    }
-
-    table tbody tr td:nth-child(2):before {
-        content: "Capital"
-    }
-
-    table tbody tr td:nth-child(3):before {
-        content: "Monto"
-    }
-
-    table tbody tr td:nth-child(4):before {
-        content: "Intereses"
-    }
-
-    table tbody tr td:nth-child(5):before {
-        content: "Dias"
-    }
-
-    table tbody tr td:nth-child(6):before {
-        content: "Renovacion    "
-    }
-
-    .column4,
-    .column5,
-    .column6,
-    .column1,
-    .column2,
-    .column3 {
-        width: 100%
-    }
-
-    tbody tr {
-        font-size: 14px
-    }
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+  }
+  table > *,
+  table tr,
+  table td,
+  table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 37px 0;
+  }
+  table tbody tr td {
+    padding-left: 40% !important;
+    margin-bottom: 24px;
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: unset;
+    position: absolute;
+    width: 40%;
+    left: 30px;
+    top: 0;
+  }
+  table tbody tr td:nth-child(1):before {
+    content: "Nombre";
+  }
+  table tbody tr td:nth-child(2):before {
+    content: "Capital";
+  }
+  table tbody tr td:nth-child(3):before {
+    content: "Monto";
+  }
+  table tbody tr td:nth-child(4):before {
+    content: "Intereses";
+  }
+  table tbody tr td:nth-child(5):before {
+    content: "Dias";
+  }
+  table tbody tr td:nth-child(6):before {
+    content: "Renovacion";
+  }
+  .column4,
+  .column5,
+  .column6,
+  .column1,
+  .column2,
+  .column3 {
+    width: 100%;
+  }
+  tbody tr {
+    font-size: 14px;
+  }
 }
-
-@media(max-width:576px) {
-    .container-table100 {
-        padding-left: 15px;
-        padding-right: 15px
-    }
-
-    .front {
-        display: block;
-        padding: 8px 16px;
-        border-radius: 5px;
-        font-size: 0.75rem;
-        background: hsl(345, 57%, 43%);
-        color: white;
-        transform: translateY(-6px);
-    }
-}
+@media (max-width: 576px) {
+  .container-table100 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .front {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+}/*# sourceMappingURL=style.css.map */

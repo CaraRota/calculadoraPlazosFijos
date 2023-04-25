@@ -1,0 +1,345 @@
+@import "variables";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body,
+html {
+    height: 100%;
+    font-family: sans-serif;
+    background-color: $bg-color
+}
+
+.bg-gradient {
+    background: $nav-bar-color !important;
+}
+
+/* START BUTTONS CSS */
+.historial {
+    font-weight: bold;
+}
+
+.pushable {
+    background: $btn-color1;
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+.company-name {
+    color: $font-color;
+}
+.front {
+    display: block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    background: $btn-color2;
+    color: $font-color;
+    transform: translateY(-6px);
+}
+
+.pushable:active .front {
+    transform: translateY(-2px);
+}
+.btn-danger {
+    color: $font-color;
+    background-color: $btn-color1;
+    border: 1px $btn-color2;
+    &:hover {
+        background-color: $btn-color2;
+        border: 1px $btn-color1;
+    }
+}
+.btn-dark {
+    color: $font-color;
+    background-color: $btn-color1;
+    border: 1px $btn-color2;
+    &:hover{
+        background-color: $btn-color2;
+        border: 1px $btn-color1;
+    }
+}
+
+/* END BUTTONS CSS */
+
+.form-container {
+    max-width: 500px;
+    background-color: $btn-color1;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+a {
+    margin: 0;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+
+    &:focus {
+        outline: none !important;
+    }
+
+    &:hover {
+        text-decoration: none
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0
+}
+
+p {
+    margin: 0
+}
+
+ul,
+li {
+    margin: 0;
+    list-style-type: none
+}
+
+input {
+    display: block;
+    outline: none;
+    border: none !important
+}
+
+textarea {
+    display: block;
+    outline: none
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent !important
+}
+
+button {
+    outline: none !important;
+    border: none;
+    background: 0 0;
+
+    &:hover {
+        cursor: pointer
+    }
+}
+
+iframe {
+    border: none !important
+}
+
+.limiter {
+    width: 100%;
+    margin: 0 auto
+}
+
+.container-table100 {
+    width: 100%;
+    background: $btn-color1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px
+}
+
+.wrap-table100 {
+    width: 1170px
+}
+
+table {
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: $btn-color1;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+table * {
+    position: relative
+}
+
+table thead tr {
+    height: 60px;
+    background: $btn-color2;
+}
+
+table tbody tr {
+    height: 50px
+}
+
+table tbody tr:last-child {
+    border: 0
+}
+
+.table100-head th {
+    font-family: OpenSans-Regular;
+    font-size: 18px;
+    color: $font-color;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+tbody tr:nth-child(even) {
+    background-color: $btn-color2;
+    &:hover {
+        background-color: $btn-color1;
+    }
+}
+
+tbody tr {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    color: $font-color;
+    line-height: 1.2;
+    font-weight: bold;
+    background-color: $btn-color2;
+}
+
+tbody tr:hover {
+    color: $font-color;
+    background-color: $btn-color1;
+    font-weight: bold;
+    cursor: pointer
+}
+
+.column1 {
+    width: 200px;
+    text-align: center;
+}
+
+.column2 {
+    width: 200px;
+    text-align: center;
+}
+
+.column3 {
+    width: 200px;
+    text-align: center;
+}
+
+.column4 {
+    width: 200px;
+    text-align: center;
+}
+
+.column5 {
+    width: 200px;
+    text-align: center;
+}
+
+.column6 {
+    width: 200px;
+    text-align: center;
+}
+
+@media screen and (max-width:768px) {
+    table {
+        display: block
+    }
+
+    table>*,
+    table tr,
+    table td,
+    table th {
+        display: block
+    }
+
+    table thead {
+        display: none
+    }
+
+    table tbody tr {
+        height: auto;
+        padding: 37px 0
+    }
+
+    table tbody tr td {
+        padding-left: 40% !important;
+        margin-bottom: 24px
+    }
+
+    table tbody tr td:last-child {
+        margin-bottom: 0
+    }
+
+    table tbody tr td:before {
+        font-family: OpenSans-Regular;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: unset;
+        position: absolute;
+        width: 40%;
+        left: 30px;
+        top: 0
+    }
+
+    table tbody tr td:nth-child(1):before {
+        content: "Nombre"
+    }
+
+    table tbody tr td:nth-child(2):before {
+        content: "Capital"
+    }
+
+    table tbody tr td:nth-child(3):before {
+        content: "Monto"
+    }
+
+    table tbody tr td:nth-child(4):before {
+        content: "Intereses"
+    }
+
+    table tbody tr td:nth-child(5):before {
+        content: "Dias"
+    }
+
+    table tbody tr td:nth-child(6):before {
+        content: "Renovacion"
+    }
+
+    .column4,
+    .column5,
+    .column6,
+    .column1,
+    .column2,
+    .column3 {
+        width: 100%
+    }
+
+    tbody tr {
+        font-size: 14px
+    }
+}
+
+@media(max-width:576px) {
+    .container-table100 {
+        padding-left: 15px;
+        padding-right: 15px
+    }
+
+    .front {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+}
