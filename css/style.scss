@@ -1,4 +1,5 @@
 @import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
 
 * {
     margin: 0;
@@ -11,6 +12,13 @@ html {
     height: 100%;
     font-family: sans-serif;
     background-color: $bg-color
+}
+
+.web-title {
+    font-family: 'Michroma', sans-serif;
+    font-size: 2rem;
+    color: $bg-color;
+    text-shadow: 1px 1px $nav-bar-color;
 }
 
 .bg-gradient {
