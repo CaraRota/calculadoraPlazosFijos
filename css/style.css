@@ -8,11 +8,11 @@ body,
 html {
   height: 100%;
   font-family: sans-serif;
-  background-color: #DDDDDD;
+  background-color: #CBE4DE;
 }
 
 .bg-gradient {
-  background: #30475E !important;
+  background: #0E8388 !important;
 }
 
 /* START BUTTONS CSS */
@@ -21,16 +21,15 @@ html {
 }
 
 .pushable {
-  background: #222831;
   border-radius: 5px;
   border: none;
   padding: 0;
   cursor: pointer;
-  outline-offset: 4px;
+  outline-offset: 1px;
 }
 
 .company-name {
-  color: #DDDDDD;
+  color: #CBE4DE;
 }
 
 .front {
@@ -38,39 +37,39 @@ html {
   padding: 12px 24px;
   border-radius: 5px;
   font-size: 1.25rem;
-  background: #30475E;
-  color: #DDDDDD;
-  transform: translateY(-6px);
+  background: #2E4F4F;
+  color: #CBE4DE;
+  transform: translateY(-3px) translateX(-1px);
 }
 
 .pushable:active .front {
-  transform: translateY(-2px);
+  transform: translateY(-1px) translateX(-1px);
 }
 
 .btn-danger {
-  color: #DDDDDD;
-  background-color: #222831;
-  border: 1px #30475E;
+  color: #CBE4DE;
+  background-color: #2C3333;
+  border: 1px #2E4F4F;
 }
 .btn-danger:hover {
-  background-color: #30475E;
-  border: 1px #222831;
+  background-color: #2E4F4F;
+  border: 1px #2C3333;
 }
 
 .btn-dark {
-  color: #DDDDDD;
-  background-color: #222831;
-  border: 1px #30475E;
+  color: #CBE4DE;
+  background-color: #2C3333;
+  border: 1px #2E4F4F;
 }
 .btn-dark:hover {
-  background-color: #30475E;
-  border: 1px #222831;
+  background-color: #2E4F4F;
+  border: 1px #2C3333;
 }
 
 /* END BUTTONS CSS */
 .form-container {
   max-width: 500px;
-  background-color: #222831;
+  background-color: #2C3333;
 }
 
 .uppercase {
@@ -146,7 +145,7 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  background: #222831;
+  background: #2C3333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,7 +160,7 @@ iframe {
 table {
   border-spacing: 1;
   border-collapse: collapse;
-  background: #222831;
+  background: #2C3333;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -175,7 +174,7 @@ table * {
 
 table thead tr {
   height: 60px;
-  background: #30475E;
+  background: #2E4F4F;
 }
 
 table tbody tr {
@@ -189,30 +188,30 @@ table tbody tr:last-child {
 .table100-head th {
   font-family: OpenSans-Regular;
   font-size: 18px;
-  color: #DDDDDD;
+  color: #CBE4DE;
   line-height: 1.2;
   font-weight: unset;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #30475E;
+  background-color: #2E4F4F;
 }
 tbody tr:nth-child(even):hover {
-  background-color: #222831;
+  background-color: #0E8388;
 }
 
 tbody tr {
   font-family: OpenSans-Regular;
   font-size: 15px;
-  color: #DDDDDD;
+  color: #CBE4DE;
   line-height: 1.2;
   font-weight: bold;
-  background-color: #30475E;
+  background-color: #2E4F4F;
 }
 
 tbody tr:hover {
-  color: #DDDDDD;
-  background-color: #222831;
+  color: #CBE4DE;
+  background-color: #0E8388;
   font-weight: bold;
   cursor: pointer;
 }

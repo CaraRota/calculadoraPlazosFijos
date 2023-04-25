@@ -23,12 +23,11 @@ html {
 }
 
 .pushable {
-    background: $btn-color1;
     border-radius: 5px;
     border: none;
     padding: 0;
     cursor: pointer;
-    outline-offset: 4px;
+    outline-offset: 1px;
 }
 .company-name {
     color: $font-color;
@@ -40,11 +39,11 @@ html {
     font-size: 1.25rem;
     background: $btn-color2;
     color: $font-color;
-    transform: translateY(-6px);
+    transform: translateY(-3px) translateX(-1px);
 }
 
 .pushable:active .front {
-    transform: translateY(-2px);
+    transform: translateY(-1px) translateX(-1px);
 }
 .btn-danger {
     color: $font-color;
@@ -203,7 +202,7 @@ table tbody tr:last-child {
 tbody tr:nth-child(even) {
     background-color: $btn-color2;
     &:hover {
-        background-color: $btn-color1;
+        background-color: $nav-bar-color;
     }
 }
 
@@ -218,7 +217,7 @@ tbody tr {
 
 tbody tr:hover {
     color: $font-color;
-    background-color: $btn-color1;
+    background-color: $nav-bar-color;
     font-weight: bold;
     cursor: pointer
 }
