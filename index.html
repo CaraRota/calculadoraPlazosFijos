@@ -22,94 +22,104 @@
 </head>
 
 <body>
+    <nav class="navbar bg-secondary bg-opacity-75 bg-gradient shadow sticky-top">
+        <div class="container-fluid d-flex justify-content-center">
+            <a class="navbar-brand" href="#">
+                <img src="./img/bank-logo.png" alt="Logo" width="50" height="50"
+                    class="d-inline-block align-text-center">
+                Banco Riendo SRL
+            </a>
+        </div>
+    </nav>
     <main>
-        <div class="container shadow rounded">
-            <div class="mt-4 rounded container text-center pt-4">
-                <div class="container form-container py-3 rounded text-light">
-                    <form id="form" class="form">
-                        <div class="mb-3">
-                            <label for="inputNombre" class="form-label">Nombre</label>
-                            <input type="text" value="Sebastian" class="form-control" id="inputNombre" placeholder="Ingrese su nombre"
-                                autofocus>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputCapital" class="form-label">Capital</label>
-                            <input type="number" value="30000" class="form-control" id="inputCapital"
-                                placeholder="Ingrese el capital que desea invertir"></input>
-                        </div>
-                        <div class="mb-3">
-                            <label for="inputDias" class="form-label">Plazo</label>
-                            <input type="number" value="30" class="form-control" id="inputDias"
-                                placeholder="Ingrese por cuantos dias desea depositar"></input>
-                        </div>
-                        <div class="row align-items-center d-flex justify-content-center py-3">
-                            <div class="col-6">
-                                <button id="btnCalcular" type="submit" class="btn btn-outline-danger pushable">
-                                    <span class="front">
-                                        Calcular
-                                    </span>
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button id="btnBorrar" type="button" class="btn btn-outline-danger pushable">
-                                    <span class="front">
-                                        Borrar Historial
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="ultimaConsulta" class="container bg-secondary rounded">
-                        </div>
-                    </form>
-                    <div class="row">
+        <div class="d-flex justify-content-center">
+            <img class="img-fluid" src="./img/bank-pic2.png" alt="Bank Picture" width="600" height="auto">
+        </div>
+        <div class="mt-4 rounded container text-center pt-4">
+            <div class="container form-container py-3 rounded text-light">
+                <form id="form" class="form">
+                    <div class="mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" value="Sebastian" class="form-control" id="inputNombre"
+                            placeholder="Ingrese su nombre" autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputCapital" class="form-label">Capital</label>
+                        <input type="number" value="30000" class="form-control" id="inputCapital"
+                            placeholder="Ingrese el capital que desea invertir"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputDias" class="form-label">Plazo</label>
+                        <input type="number" value="30" class="form-control" id="inputDias"
+                            placeholder="Ingrese por cuantos dias desea depositar"></input>
+                    </div>
+                    <div class="row align-items-center d-flex justify-content-center py-3">
                         <div class="col-6">
-                            <button id="btnMisConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
+                            <button id="btnCalcular" type="submit" class="btn btn-outline-danger pushable">
                                 <span class="front">
-                                    Mis Consultas
+                                    Calcular
                                 </span>
                             </button>
                         </div>
                         <div class="col-6">
-                            <button id="btnBorrarConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
+                            <button id="btnBorrar" type="button" class="btn btn-outline-danger pushable">
                                 <span class="front">
-                                    Borrar Consultas
+                                    Borrar Historial
                                 </span>
                             </button>
                         </div>
                     </div>
+                    <div id="ultimaConsulta" class="container bg-secondary rounded">
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-6">
+                        <button id="btnMisConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
+                            <span class="front">
+                                Mis Consultas
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button id="btnBorrarConsultas" type="button" class="btn btn-outline-danger pushable mt-4">
+                            <span class="front">
+                                Borrar Consultas
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="container py-4">
-                <div class="limiter">
-                    <div class="container-table100 rounded">
-                        <div class="wrap-table100">
-                            <div class="table100">
-                                <table>
-                                    <span
-                                        class="historial uppcercase d-flex justify-content-center text-center text-light h4">
-                                        Historial de Consultas
-                                    </span>
-                                    <thead id="encabezado">
-                                        <tr class="table100-head uppcercase">
-                                            <th class="column1">Nombre</th>
-                                            <th class="column2">Capital</th>
-                                            <th class="column3">Monto</th>
-                                            <th class="column4">Intereses</th>
-                                            <th class="column5">Dias</th>
-                                            <th class="column6">Renovacion</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="historial">
-                                    </tbody>
-                                </table>
-                            </div>
+        </div>
+        <div class="container py-4">
+            <div class="limiter">
+                <div class="container-table100 rounded">
+                    <div class="wrap-table100">
+                        <div class="table100">
+                            <table>
+                                <span
+                                    class="historial uppcercase d-flex justify-content-center text-center text-light h4">
+                                    Historial de Consultas
+                                </span>
+                                <thead id="encabezado">
+                                    <tr class="table100-head uppcercase">
+                                        <th class="column1">Nombre</th>
+                                        <th class="column2">Capital</th>
+                                        <th class="column3">Monto</th>
+                                        <th class="column4">Intereses</th>
+                                        <th class="column5">Dias</th>
+                                        <th class="column6">Renovacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historial">
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="consultasCliente">
+        </div>
+        <div id="consultasCliente">
 
-            </div>
         </div>
     </main>
     <!-- IMPORTAMOS JS DE BOOTSTRAP 5 -->
