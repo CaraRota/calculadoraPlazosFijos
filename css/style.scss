@@ -14,6 +14,69 @@ html {
     background-color: $bg-color
 }
 
+// START SLIDER HERE
+
+@-webkit-keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+.slider {
+    background: black;
+    color: $font-color;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+    @include wh;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+
+    &::before::after {
+        background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+        content: "";
+        position: absolute;
+        z-index: 2;
+        @include wh;
+    }
+
+    &::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    &::before {
+        left: 0;
+        top: 0;
+    }
+
+    &.slider .slide-track {
+        -webkit-animation: scroll 40s linear infinite;
+        animation: scroll 40s linear infinite;
+        display: flex;
+    }
+
+    &.slider .slide {
+        @include wh;
+    }
+}
+
+// END SLIDER HERE
+
 .web-title {
     font-family: 'Michroma', sans-serif;
     color: $bg-color;

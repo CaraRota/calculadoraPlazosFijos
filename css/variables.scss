@@ -9,3 +9,8 @@ $font-shadow: #222831;
 
 $table-hover-color: #222831;
 $web-title-color: #222831;
+
+@mixin wh{
+    width: 100%;
+    height: 25px;
+}
