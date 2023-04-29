@@ -17,7 +17,7 @@ html {
 .web-title {
     font-family: 'Michroma', sans-serif;
     color: $bg-color;
-    text-shadow: 1px 1px $nav-bar-color;
+    text-shadow: 1px 1px $web-title-color;
 }
 
 .bg-gradient {
@@ -27,6 +27,11 @@ html {
 /* START BUTTONS CSS */
 .historial {
     font-weight: bold;
+
+}
+
+.ultimaConsulta {
+    background-color: $btn-color2;
 }
 
 .pushable {
@@ -36,9 +41,11 @@ html {
     cursor: pointer;
     outline-offset: 1px;
 }
+
 .company-name {
-    color: $font-color;
+    color: $nav-bar-font-color;
 }
+
 .front {
     display: block;
     padding: 12px 24px;
@@ -52,22 +59,40 @@ html {
 .pushable:active .front {
     transform: translateY(-1px) translateX(-1px);
 }
+
 .btn-danger {
     color: $font-color;
     background-color: $btn-color1;
     border: 1px $btn-color2;
+
     &:hover {
         background-color: $btn-color2;
+        color: $font-color;
         border: 1px $btn-color1;
     }
+
+    &:active {
+        background-color: $btn-color2 !important;
+        color: $font-color !important;
+        border: 1px $btn-color1 !important;
+    }
 }
+
 .btn-dark {
     color: $font-color;
     background-color: $btn-color1;
     border: 1px $btn-color2;
-    &:hover{
+
+    &:hover {
         background-color: $btn-color2;
+        color: $font-color;
         border: 1px $btn-color1;
+    }
+
+    &:active {
+        background-color: $btn-color2 !important;
+        color: $font-color !important;
+        border: 1px $btn-color1 !important;
     }
 }
 
@@ -208,8 +233,9 @@ table tbody tr:last-child {
 
 tbody tr:nth-child(even) {
     background-color: $btn-color2;
+
     &:hover {
-        background-color: $nav-bar-color;
+        background-color: $table-hover-color;
     }
 }
 
@@ -224,7 +250,7 @@ tbody tr {
 
 tbody tr:hover {
     color: $font-color;
-    background-color: $nav-bar-color;
+    background-color: $table-hover-color;
     font-weight: bold;
     cursor: pointer
 }

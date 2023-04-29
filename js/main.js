@@ -25,7 +25,6 @@ const obtenerDatos = (event) => {
         agregarHistoriales(nombre, capital, dias) // En DOM.js
     }
 }
-
 // Llamamos a la funcion borrarArray mediante el boton de Borrar
 const borrarArray = () => {
     // Chequeamos que el historial de calculos tenga datos cargados

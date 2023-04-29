@@ -9,22 +9,26 @@ body,
 html {
   height: 100%;
   font-family: sans-serif;
-  background-color: #CBE4DE;
+  background-color: #EEEEEE;
 }
 
 .web-title {
   font-family: "Michroma", sans-serif;
-  color: #CBE4DE;
-  text-shadow: 1px 1px #0E8388;
+  color: #EEEEEE;
+  text-shadow: 1px 1px #222831;
 }
 
 .bg-gradient {
-  background: #0E8388 !important;
+  background: #393E46 !important;
 }
 
 /* START BUTTONS CSS */
 .historial {
   font-weight: bold;
+}
+
+.ultimaConsulta {
+  background-color: #393E46;
 }
 
 .pushable {
@@ -36,7 +40,7 @@ html {
 }
 
 .company-name {
-  color: #CBE4DE;
+  color: #FFD369;
 }
 
 .front {
@@ -44,8 +48,8 @@ html {
   padding: 12px 24px;
   border-radius: 5px;
   font-size: 1.25rem;
-  background: #2E4F4F;
-  color: #CBE4DE;
+  background: #393E46;
+  color: #FFD369;
   transform: translateY(-3px) translateX(-1px);
 }
 
@@ -54,29 +58,41 @@ html {
 }
 
 .btn-danger {
-  color: #CBE4DE;
-  background-color: #2C3333;
-  border: 1px #2E4F4F;
+  color: #FFD369;
+  background-color: #222831;
+  border: 1px #393E46;
 }
 .btn-danger:hover {
-  background-color: #2E4F4F;
-  border: 1px #2C3333;
+  background-color: #393E46;
+  color: #FFD369;
+  border: 1px #222831;
+}
+.btn-danger:active {
+  background-color: #393E46 !important;
+  color: #FFD369 !important;
+  border: 1px #222831 !important;
 }
 
 .btn-dark {
-  color: #CBE4DE;
-  background-color: #2C3333;
-  border: 1px #2E4F4F;
+  color: #FFD369;
+  background-color: #222831;
+  border: 1px #393E46;
 }
 .btn-dark:hover {
-  background-color: #2E4F4F;
-  border: 1px #2C3333;
+  background-color: #393E46;
+  color: #FFD369;
+  border: 1px #222831;
+}
+.btn-dark:active {
+  background-color: #393E46 !important;
+  color: #FFD369 !important;
+  border: 1px #222831 !important;
 }
 
 /* END BUTTONS CSS */
 .form-container {
   max-width: 500px;
-  background-color: #2C3333;
+  background-color: #222831;
 }
 
 .uppercase {
@@ -152,7 +168,7 @@ iframe {
 
 .container-table100 {
   width: 100%;
-  background: #2C3333;
+  background: #222831;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,7 +183,7 @@ iframe {
 table {
   border-spacing: 1;
   border-collapse: collapse;
-  background: #2C3333;
+  background: #222831;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -181,7 +197,7 @@ table * {
 
 table thead tr {
   height: 60px;
-  background: #2E4F4F;
+  background: #393E46;
 }
 
 table tbody tr {
@@ -195,30 +211,30 @@ table tbody tr:last-child {
 .table100-head th {
   font-family: OpenSans-Regular;
   font-size: 18px;
-  color: #CBE4DE;
+  color: #FFD369;
   line-height: 1.2;
   font-weight: unset;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #2E4F4F;
+  background-color: #393E46;
 }
 tbody tr:nth-child(even):hover {
-  background-color: #0E8388;
+  background-color: #222831;
 }
 
 tbody tr {
   font-family: OpenSans-Regular;
   font-size: 15px;
-  color: #CBE4DE;
+  color: #FFD369;
   line-height: 1.2;
   font-weight: bold;
-  background-color: #2E4F4F;
+  background-color: #393E46;
 }
 
 tbody tr:hover {
-  color: #CBE4DE;
-  background-color: #0E8388;
+  color: #FFD369;
+  background-color: #222831;
   font-weight: bold;
   cursor: pointer;
 }
