@@ -11,31 +11,32 @@ html {
   font-family: sans-serif;
   background-color: #EEEEEE;
 }
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1750px);
+    transform: translateX(-625px);
   }
 }
 .slider {
-  background: black;
+  background: #393E46;
   color: #FFD369;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  width: 100%;
   height: 25px;
   margin: auto;
   overflow: hidden;
   position: relative;
+  width: 960px;
 }
-.slider::before::after {
-  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+.slider::before, .slider::after {
+  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
   content: "";
-  position: absolute;
-  z-index: 2;
-  width: 100%;
   height: 25px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
 }
 .slider::after {
   right: 0;
@@ -46,13 +47,14 @@ html {
   left: 0;
   top: 0;
 }
-.slider.slider .slide-track {
-  animation: scroll 40s linear infinite;
+.slider .slide-track {
+  animation: scroll 14.284s linear infinite;
   display: flex;
+  width: 1250px;
 }
-.slider.slider .slide {
-  width: 100%;
+.slider .slide {
   height: 25px;
+  width: 250px;
 }
 
 .web-title {
