@@ -43,8 +43,20 @@ fetch(apiUrl)
         mayorista.innerHTML = `${data[4].nombre}: ${data[4].venta}`
     })
 
-    // const mep = document.querySelector("#dolarMep")
-    //     mep.innerHTML = `${data[2].compra}`
+const apiUrl2 = "https://mercados.ambito.com//dolarrava/cl/variacion"
 
-    //     const ccl = document.querySelector("#dolarCcl")
-    //     ccl.innerHTML = `${data[2].compra}`
+fetch(apiUrl2)
+    .then((response) => response.json())
+    .then((data) => {
+        const ccl = document.querySelector("#dolarCcl")
+        ccl.innerHTML = `Dolar CCL: ${data.venta}`
+    })
+
+const apiUrl3 = "https://mercados.ambito.com//dolarrava/mep/variacion"
+
+fetch(apiUrl3)
+    .then((response) => response.json())
+    .then((data) => {
+        const mep = document.querySelector("#dolarMep")
+        mep.innerHTML = `Dolar MEP: ${data.venta}`
+    })

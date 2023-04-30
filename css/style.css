@@ -17,11 +17,11 @@ html {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-625px);
+    transform: translateX(-1750px);
   }
 }
 .slider {
-  background: #393E46;
+  background: #222831;
   color: #FFD369;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   height: 25px;
@@ -29,32 +29,29 @@ html {
   overflow: hidden;
   position: relative;
   width: 960px;
-}
-.slider::before, .slider::after {
-  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
-  content: "";
-  height: 25px;
-  position: absolute;
-  width: 200px;
-  z-index: 2;
-}
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-.slider::before {
-  left: 0;
-  top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 .slider .slide-track {
-  animation: scroll 14.284s linear infinite;
+  animation: scroll 20s linear infinite;
   display: flex;
-  width: 1250px;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  min-width: 200%;
+  position: absolute;
 }
 .slider .slide {
   height: 25px;
-  width: 250px;
+}
+.slider:hover .slide-track {
+  animation-play-state: paused;
+}
+.slider .slide {
+  filter: grayscale(100%);
+  transition: 30s all linear;
+}
+.slider .slide:hover {
+  filter: none;
 }
 
 .web-title {
