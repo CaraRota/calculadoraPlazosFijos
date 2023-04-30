@@ -21,42 +21,76 @@ const alertas = (icon, titulo, texto, animation) => {
     })
 }
 
-// Utilizamos la API de ambito.com
+// Utilizamos la API general de ambito.com (esta API no incluye CCL y MEP)
 const apiUrl = "https://mercados.ambito.com/home/general"
 
-fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-        const oficial = document.querySelector("#dolarOficial")
-        oficial.innerHTML = `${data[0].nombre}: ${data[0].venta}`
+// Creamos un infinite loop con setTimeout y llamando luego a la funcion para que se actualice la cotizacion cada x segundos
 
-        const informal = document.querySelector("#dolarInformal")
-        informal.innerHTML = `${data[1].nombre}: ${data[1].venta}`
+const cotizacionesGenerales = () => {
+    fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            const oficial = document.querySelector("#dolarOficial")
+            oficial.innerHTML = `${data[0].nombre}: $${data[0].venta}`
 
-        const turista = document.querySelector("#dolarTurista")
-        turista.innerHTML = `${data[2].nombre}: ${data[2].venta}`
+            const informal = document.querySelector("#dolarInformal")
+            informal.innerHTML = `${data[1].nombre}: $${data[1].venta}`
 
-        const ahorro = document.querySelector("#dolarAhorro")
-        ahorro.innerHTML = `${data[3].nombre}: ${data[3].venta}`
+            const turista = document.querySelector("#dolarTurista")
+            turista.innerHTML = `${data[2].nombre}: $${data[2].venta}`
 
-        const mayorista = document.querySelector("#dolarMayorista")
-        mayorista.innerHTML = `${data[4].nombre}: ${data[4].venta}`
-    })
+            const ahorro = document.querySelector("#dolarAhorro")
+            ahorro.innerHTML = `${data[3].nombre}: $${data[3].venta}`
 
+            const mayorista = document.querySelector("#dolarMayorista")
+            mayorista.innerHTML = `${data[4].nombre}: $${data[4].venta}`
+        })
+}
+
+const actualizarCotizaciones = () => {
+    cotizacionesGenerales()
+    setTimeout(() => {
+        actualizarCotizaciones()
+    }, 5000)
+}
+actualizarCotizaciones()
+
+// Utilizamos otra API para atrapar el dolar CCL
 const apiUrl2 = "https://mercados.ambito.com//dolarrava/cl/variacion"
 
-fetch(apiUrl2)
-    .then((response) => response.json())
-    .then((data) => {
-        const ccl = document.querySelector("#dolarCcl")
-        ccl.innerHTML = `Dolar CCL: ${data.venta}`
-    })
+const cotizacionesMep = () => {
+    fetch(apiUrl2)
+        .then((response) => response.json())
+        .then((data) => {
+            const ccl = document.querySelector("#dolarCcl")
+            ccl.innerHTML = `Dolar CCL: $${data.venta}`
+        })
+}
 
+const actualizarCotizacionesMep = () => {
+    cotizacionesMep()
+    setTimeout(() => {
+        actualizarCotizacionesMep()
+    }, 5000)
+}
+actualizarCotizacionesMep()
+
+// Utilizamos otra API para atrapar el dolar MEP
 const apiUrl3 = "https://mercados.ambito.com//dolarrava/mep/variacion"
 
-fetch(apiUrl3)
-    .then((response) => response.json())
-    .then((data) => {
-        const mep = document.querySelector("#dolarMep")
-        mep.innerHTML = `Dolar MEP: ${data.venta}`
-    })
+const cotizacionesCcl = () => {
+    fetch(apiUrl3)
+        .then((response) => response.json())
+        .then((data) => {
+            const mep = document.querySelector("#dolarMep")
+            mep.innerHTML = `Dolar MEP: ${data.venta}`
+        })
+}
+
+const actualizarCotizacionesCcl = () => {
+    cotizacionesCcl()
+    setTimeout(() => {
+        actualizarCotizacionesCcl()
+    }, 5000)
+}
+actualizarCotizacionesCcl()
