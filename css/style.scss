@@ -16,19 +16,17 @@ html {
 
 // START SLIDER HERE
 
-// Animation
+// Animaciones
 @keyframes scroll {
     0% {
-        transform: translateX(0);
+        transform: translateX(850px);
     }
 
     100% {
-        transform: translateX(calc(-250px * 7))
+        transform: translateX(calc(-318px * 7))
     }
 }
 
-
-// Styling
 .slider {
     background: $btn-color1;
     color: $font-color;
@@ -38,6 +36,7 @@ html {
     overflow: hidden;
     position: relative;
     width: 960px;
+    max-width: 95vw;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
@@ -45,26 +44,26 @@ html {
         animation: scroll $animationSpeed linear infinite;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-around;
+        justify-content: space-evenly;
         min-width: 250%;
         position: absolute;
     }
 
     .slide {
         height: $h;
+        min-width: 170px;
+        max-width: 250px;
     }
 
-    //pause on hover
     &:hover {
         .slide-track {
             animation-play-state: paused;
         }
     }
 
-    //hover efffect
     .slide {
-        filter: grayscale(100%);
-        transition: 30s all linear;
+        // filter: grayscale(100%); --> Dejo este comentario porque quiero activarlo en un futuro...
+        transition: $animationSpeed all linear;
 
         &:hover {
             filter: none;
