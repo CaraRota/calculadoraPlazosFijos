@@ -98,7 +98,6 @@ const borrarConsultas = () => {
 }
 
 // COMIENZO SECCION FETCH: CAROUSEL CON COTIZACIONES EN TIEMPO REAL DEL TIPO DE CAMBIO UTILIZANDO APIs DE AMBITO.COM
-
 const cotizacionesGenerales = () => {
     fetch(apiUrl)
         .then((response) => response.json())
@@ -118,6 +117,9 @@ const cotizacionesGenerales = () => {
             const mayorista = document.querySelector("#dolarMayorista")
             mayorista.innerHTML = `${data[4].nombre}: $${data[4].venta}`
         })
+        .catch((error) => {
+            console.error("Error al cargar la API", error)
+        })
 }
 
 const cotizacionesMep = () => {
@@ -127,6 +129,9 @@ const cotizacionesMep = () => {
             const ccl = document.querySelector("#dolarCcl")
             ccl.innerHTML = `Dolar CCL: $${data.venta}`
         })
+        .catch((error) => {
+            console.error("Error al cargar la API", error)
+        })
 }
 
 const cotizacionesCcl = () => {
@@ -134,17 +139,19 @@ const cotizacionesCcl = () => {
         .then((response) => response.json())
         .then((data) => {
             const mep = document.querySelector("#dolarMep")
-            mep.innerHTML = `Dolar MEP: ${data.venta}`
+            mep.innerHTML = `Dolar MEP: $${data.venta}`
+        })
+        .catch((error) => {
+            console.error("Error al cargar la API", error)
         })
 }
 
 // Utilizamos la API general de ambito.com (esta API no incluye CCL y MEP, estos datos deberemos obtenerlos de otras urls)
 const apiUrl = "https://mercados.ambito.com/home/general"
 
-// Creamos un infinite loop con setTimeout y llamando a una funcion que llame a cotizacionesGenerales() para que se actualice la cotizacion cada refreshTimeout segundos
-
 const refreshTimeout = 60000 //Actualizamos cada 60s
 
+// Creamos un infinite loop con setTimeout y llamando a una funcion que llame a cotizacionesGenerales() para que se actualice la cotizacion cada refreshTimeout segundos
 // Funcion "loop refresh"
 const actualizarCotizaciones = () => {
     cotizacionesGenerales()

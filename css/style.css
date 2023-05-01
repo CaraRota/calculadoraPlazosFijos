@@ -12,6 +12,11 @@ html {
   background-color: #EEEEEE;
 }
 
+.live-gif {
+  width: 20px;
+  height: auto;
+}
+
 .slider {
   background: #222831;
   color: #FFD369;

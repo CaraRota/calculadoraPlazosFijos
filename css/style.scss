@@ -14,8 +14,12 @@ html {
     background-color: $bg-color
 }
 
-// START SLIDER HERE
+.live-gif {
+    width: 20px;
+    height: auto;
+}
 
+// START SLIDER HERE
 .slider {
     background: $btn-color1;
     color: $font-color;
