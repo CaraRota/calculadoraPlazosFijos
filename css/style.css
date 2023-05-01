@@ -12,48 +12,19 @@ html {
   background-color: #EEEEEE;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(850px);
-  }
-  100% {
-    transform: translateX(-2226px);
-  }
-}
 .slider {
   background: #222831;
   color: #FFD369;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   height: 25px;
   margin: auto;
-  overflow: hidden;
-  position: relative;
-  width: 960px;
+  width: 250px;
   max-width: 95vw;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.slider .slide-track {
-  animation: scroll 30s linear infinite;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  min-width: 250%;
-  position: absolute;
-}
-.slider .slide {
-  height: 25px;
-  min-width: 180px;
-  max-width: 250px;
-}
-.slider:hover .slide-track {
-  animation-play-state: paused;
-}
-.slider .slide {
-  transition: 30s all linear;
-}
-.slider .slide:hover {
-  filter: none;
+.slider:hover {
+  cursor: pointer;
 }
 
 .web-title {

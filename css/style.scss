@@ -16,58 +16,19 @@ html {
 
 // START SLIDER HERE
 
-// Animaciones
-@keyframes scroll {
-    0% {
-        transform: translateX(850px);
-    }
-
-    100% {
-        transform: translateX(calc(-318px * 7))
-    }
-}
-
 .slider {
     background: $btn-color1;
     color: $font-color;
     box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
     height: $h;
     margin: auto;
-    overflow: hidden;
-    position: relative;
-    width: 960px;
+    width: 250px;
     max-width: 95vw;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 
-    .slide-track {
-        animation: scroll $animationSpeed linear infinite;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        min-width: 250%;
-        position: absolute;
-    }
-
-    .slide {
-        height: $h;
-        min-width: 180px;
-        max-width: 250px;
-    }
-
     &:hover {
-        .slide-track {
-            animation-play-state: paused;
-        }
-    }
-
-    .slide {
-        // filter: grayscale(100%); --> Dejo este comentario porque quiero activarlo en un futuro...
-        transition: $animationSpeed all linear;
-
-        &:hover {
-            filter: none;
-        }
+        cursor: pointer;
     }
 }
 
