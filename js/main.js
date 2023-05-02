@@ -103,22 +103,23 @@ const cotizacionesGenerales = () => {
         .then((response) => response.json())
         .then((data) => {
             const oficial = document.querySelector("#dolarOficial")
-            oficial.innerHTML = `${data[0].nombre}: $${data[0].venta}`
+            parseFloat(data[0].variacion) < 0 ? oficial.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[0].nombre}: $${data[0].venta}` : oficial.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[0].nombre}: $${data[0].venta}`
 
             const informal = document.querySelector("#dolarInformal")
-            informal.innerHTML = `${data[1].nombre}: $${data[1].venta}`
+            parseFloat(data[1].variacion) < 0 ? informal.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[1].nombre}: $${data[1].venta}` : informal.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[1].nombre}: $${data[1].venta}`
 
             const turista = document.querySelector("#dolarTurista")
-            turista.innerHTML = `${data[2].nombre}: $${data[2].venta}`
+            parseFloat(data[2].variacion) < 0 ? turista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[2].nombre}: $${data[2].venta}` : turista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[2].nombre}: $${data[2].venta}`
 
             const ahorro = document.querySelector("#dolarAhorro")
-            ahorro.innerHTML = `${data[3].nombre}: $${data[3].venta}`
+            parseFloat(data[3].variacion) < 0 ? ahorro.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[3].nombre}: $${data[3].venta}` : ahorro.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[3].nombre}: $${data[3].venta}`
 
             const mayorista = document.querySelector("#dolarMayorista")
-            mayorista.innerHTML = `${data[4].nombre}: $${data[4].venta}`
+            parseFloat(data[4].variacion) < 0 ? mayorista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[4].nombre}: $${data[4].venta}` : mayorista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[4].nombre}: $${data[4].venta}`
         })
+        // Agregamos un catch para controlar algun error al cargar la API
         .catch((error) => {
-            console.error("Error al cargar la API", error)
+            console.error("Error al cargar la API General", error)
         })
 }
 
@@ -126,11 +127,11 @@ const cotizacionesMep = () => {
     fetch(apiUrl2)
         .then((response) => response.json())
         .then((data) => {
-            const ccl = document.querySelector("#dolarCcl")
-            ccl.innerHTML = `Dolar CCL: $${data.venta}`
+            const mep = document.querySelector("#dolarMep")
+            parseFloat(data.variacion) < 0 ? mep.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar MEP: $${data.venta}` : mep.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar MEP: $${data.venta}`
         })
         .catch((error) => {
-            console.error("Error al cargar la API", error)
+            console.error("Error al cargar la API de MEP", error)
         })
 }
 
@@ -138,11 +139,11 @@ const cotizacionesCcl = () => {
     fetch(apiUrl3)
         .then((response) => response.json())
         .then((data) => {
-            const mep = document.querySelector("#dolarMep")
-            mep.innerHTML = `Dolar MEP: $${data.venta}`
+            const ccl = document.querySelector("#dolarCcl")
+            parseFloat(data.variacion) < 0 ? ccl.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar CCL: $${data.venta}` : ccl.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar CCL: $${data.venta}`
         })
         .catch((error) => {
-            console.error("Error al cargar la API", error)
+            console.error("Error al cargar la API de CCL", error)
         })
 }
 
@@ -162,8 +163,8 @@ const actualizarCotizaciones = () => {
 
 actualizarCotizaciones()
 
-// Utilizamos otra API para atrapar el dolar CCL
-const apiUrl2 = "https://mercados.ambito.com//dolarrava/cl/variacion"
+// Utilizamos otra API para atrapar el dolar MEP
+const apiUrl2 = "https://mercados.ambito.com//dolarrava/mep/variacion"
 
 const actualizarCotizacionesMep = () => {
     cotizacionesMep()
@@ -171,10 +172,11 @@ const actualizarCotizacionesMep = () => {
         actualizarCotizacionesMep()
     }, refreshTimeout)
 }
+
 actualizarCotizacionesMep()
 
-// Utilizamos otra API para atrapar el dolar MEP
-const apiUrl3 = "https://mercados.ambito.com//dolarrava/mep/variacion"
+// Utilizamos otra API para atrapar el dolar CCL
+const apiUrl3 = "https://mercados.ambito.com//dolarrava/cl/variacion"
 
 const actualizarCotizacionesCcl = () => {
     cotizacionesCcl()
