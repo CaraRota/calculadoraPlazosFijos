@@ -1,3 +1,4 @@
+// Query selectors y event listeners de los botones del formulario
 const btnCalcular = document.querySelector("#form")
 btnCalcular.addEventListener("submit", obtenerDatos)
 
@@ -10,9 +11,12 @@ btnMisConsultas.addEventListener("click", misConsultas)
 const btnBorrarConsultas = document.querySelector("#btnBorrarConsultas")
 btnBorrarConsultas.addEventListener("click", borrarConsultas)
 
+// Query selectors de nuestro formulario
 const inputNombre = document.querySelector("#inputNombre")
 const inputCapital = document.querySelector("#inputCapital")
 const inputDias = document.querySelector("#inputDias")
+
+// Query selectors de nuestras tablas
 const ultimaConsulta = document.querySelector("#ultimaConsulta")
 const agregarHistorial = document.querySelector("#historial")
 const mostrarConsultas = document.querySelector("#consultasCliente")

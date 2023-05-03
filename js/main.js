@@ -103,19 +103,19 @@ const cotizacionesGenerales = () => {
         .then((response) => response.json())
         .then((data) => {
             const oficial = document.querySelector("#dolarOficial")
-            parseFloat(data[0].variacion) < 0 ? oficial.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[0].nombre}: $${data[0].venta}` : oficial.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[0].nombre}: $${data[0].venta}`
+            data[0]["class-variacion"] == "down" ? oficial.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[0].nombre}: $${data[0].venta}` : oficial.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[0].nombre}: $${data[0].venta}`
 
             const informal = document.querySelector("#dolarInformal")
-            parseFloat(data[1].variacion) < 0 ? informal.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[1].nombre}: $${data[1].venta}` : informal.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[1].nombre}: $${data[1].venta}`
+            data[1]["class-variacion"] == "down" ? informal.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[1].nombre}: $${data[1].venta}` : informal.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[1].nombre}: $${data[1].venta}`
 
             const turista = document.querySelector("#dolarTurista")
-            parseFloat(data[2].variacion) < 0 ? turista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[2].nombre}: $${data[2].venta}` : turista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[2].nombre}: $${data[2].venta}`
+            data[2]["class-variacion"] == "down" ? turista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[2].nombre}: $${data[2].venta}` : turista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[2].nombre}: $${data[2].venta}`
 
             const ahorro = document.querySelector("#dolarAhorro")
-            parseFloat(data[3].variacion) < 0 ? ahorro.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[3].nombre}: $${data[3].venta}` : ahorro.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[3].nombre}: $${data[3].venta}`
+            data[3]["class-variacion"] == "down" ? ahorro.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[3].nombre}: $${data[3].venta}` : ahorro.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[3].nombre}: $${data[3].venta}`
 
             const mayorista = document.querySelector("#dolarMayorista")
-            parseFloat(data[4].variacion) < 0 ? mayorista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[4].nombre}: $${data[4].venta}` : mayorista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[4].nombre}: $${data[4].venta}`
+            data[4]["class-variacion"] == "down" ? mayorista.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> ${data[4].nombre}: $${data[4].venta}` : mayorista.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> ${data[4].nombre}: $${data[4].venta}`
         })
         // Agregamos un catch para controlar algun error al cargar la API
         .catch((error) => {
@@ -128,7 +128,7 @@ const cotizacionesMep = () => {
         .then((response) => response.json())
         .then((data) => {
             const mep = document.querySelector("#dolarMep")
-            parseFloat(data.variacion) < 0 ? mep.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar MEP: $${data.venta}` : mep.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar MEP: $${data.venta}`
+            data["class-variacion"] == "down" ? mep.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar MEP: $${data.venta}` : mep.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar MEP: $${data.venta}`
         })
         .catch((error) => {
             console.error("Error al cargar la API de MEP", error)
@@ -140,7 +140,7 @@ const cotizacionesCcl = () => {
         .then((response) => response.json())
         .then((data) => {
             const ccl = document.querySelector("#dolarCcl")
-            parseFloat(data.variacion) < 0 ? ccl.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar CCL: $${data.venta}` : ccl.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar CCL: $${data.venta}`
+            data["class-variacion"] == "down" ? ccl.innerHTML = `<img src="../img/arrow-down.png" alt="Arrow Down"> Dolar CCL: $${data.venta}` : ccl.innerHTML = `<img src="../img/arrow-up.png" alt="Arrow Up"> Dolar CCL: $${data.venta}`
         })
         .catch((error) => {
             console.error("Error al cargar la API de CCL", error)
